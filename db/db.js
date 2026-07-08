@@ -3,7 +3,8 @@ import "dotenv/config";
 import dns from "dns";
 
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
-const client = new MongoClient(process.env.MONGODB_URI);
+
+export const client = new MongoClient(process.env.MONGODB_URI);
 
 export async function connectToMongoDB() {
   try {

@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { connectToMongoDB } from "./db/db.js";
+import userRouter from "./router/user.router.js";
 
 dotenv.config();
 
@@ -19,6 +20,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hey learners");
 });
+
+//routes
+app.use("/api/v1/users", userRouter);
 
 app.listen(port, () => {
   connectToMongoDB();
